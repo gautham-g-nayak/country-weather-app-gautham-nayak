@@ -2,6 +2,8 @@ import React, { useState, useCallback, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useDebounce } from "../hooks/useDebounce";
+import "./searchCountryPage.css";
+import Box from "@mui/material/Box";
 
 function SearchCountry() {
   const API_ENDPOINT = "https://restcountries.com/v3.1/name/";
@@ -55,49 +57,26 @@ function SearchCountry() {
   }, [handleFetchStories]);
 
   return (
-    <div
-      style={{
-        width: window.innerWidth,
-        height: window.innerHeight,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      
-        <input
-          placeholder="Country Name"
-          type="text"
-          name="name"
-          onChange={inputsHandler}
-          style={{
-            width: "40%",
-            padding: "15px 20px",
-            borderRadius: "5px",
-            fontSize: "16px",
-            margin: "4px 10px",
-          }}
-        />
-
-        <Link
-          to={`/country-details:${countryName}`} state={data}
-          style={{
-            pointerEvents: buttonCondition ? "auto" : "none",
-            backgroundColor: buttonCondition ? "#4CAF50" : "#babfc4",
-            border: "none",
-            color: "white",
-            padding: "15px 50px",
-            textAlign: "center",
-            borderRadius: "5px",
-            textDecoration: "none",
-            fontSize: "16px",
-            margin: "4px 10px",
-          }}
-        >
-          Search
-        </Link>
-    
-    </div>
+    <Box className="inputContainer">
+      <input
+        className="inputField"
+        placeholder="Country Name"
+        type="text"
+        name="name"
+        onChange={inputsHandler}
+      />
+      <Link
+        to={`/country-details:${countryName}`}
+        state={data}
+        className="inputButton"
+        style={{
+          pointerEvents: buttonCondition ? "auto" : "none",
+          backgroundColor: buttonCondition ? "#0AA1DD" : "#babfc4",
+        }}
+      >
+        Search
+      </Link>
+    </Box>
   );
 }
 
