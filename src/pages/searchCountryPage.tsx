@@ -1,12 +1,13 @@
 import React, { useState, useCallback, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { useDebounce } from "../hooks/useDebounce";
 import "./searchCountryPage.css";
 import Box from "@mui/material/Box";
+import InputField from "../components/InputField";
+import InputButton from "../components/InputButton";
 
 function SearchCountry() {
-  const API_ENDPOINT = "https://restcountries.com/v3.1/name/";
+  const API_ENDPOINT: string = "https://restcountries.com/v3.1/name/";
   const [countryName, setCountryName] = useState("");
   const [data, setData] = useState([]);
   const debouncedUrl = useDebounce(API_ENDPOINT + countryName);
@@ -58,24 +59,18 @@ function SearchCountry() {
 
   return (
     <Box className="inputContainer">
-      <input
+      <InputField
         className="inputField"
-        placeholder="Country Name"
-        type="text"
-        name="name"
+        placeHolder="Country Name"
         onChange={inputsHandler}
       />
-      <Link
+      <InputButton
         to={`/country-details:${countryName}`}
-        state={data}
+        data={data}
         className="inputButton"
-        style={{
-          pointerEvents: buttonCondition ? "auto" : "none",
-          backgroundColor: buttonCondition ? "#0AA1DD" : "#babfc4",
-        }}
-      >
-        Search
-      </Link>
+        buttonCondition={buttonCondition}
+        label="Search"
+      />
     </Box>
   );
 }

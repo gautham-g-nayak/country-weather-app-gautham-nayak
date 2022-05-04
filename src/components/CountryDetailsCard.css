@@ -1,7 +1,13 @@
-.inputContainer {
+.container {
   background-color: var(--backgroundColor);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+}
+
+.capitalDetailsDiv {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
 }
