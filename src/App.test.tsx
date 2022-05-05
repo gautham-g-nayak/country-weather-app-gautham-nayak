@@ -1,7 +1,11 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, act } from "@testing-library/react";
+import axios from "axios";
+import { BrowserRouter} from "react-router-dom";
 import CapitalDetailsCard from "./components/CapitalDetailsCard";
+import CountryDetailsCard from "./components/CountryDetailsCard";
 import Information from "./components/Information";
 import InputField from "./components/InputField";
+import CapitalDetails from "./pages/CapitalDetails";
 
 const data = {
   name: {
@@ -34,6 +38,12 @@ const CapitalData = {
 describe("test CapitalDetailsCard component", () => {
   test("render CapitalDetailsCard component", () => {
     render(<CapitalDetailsCard data={CapitalData} />);
+  });
+});
+
+describe("test CountryDetailsCard component", () => {
+  test("render CountryDetailsCard component", () => {
+    render(<BrowserRouter><CountryDetailsCard data={data} /></BrowserRouter>);
   });
 });
 
@@ -77,28 +87,3 @@ describe("test Input Field component", () => {
     expect(InputFieldProps.onChange).toHaveBeenCalledTimes(1);
   });
 });
-
-// describe("test CountryDetailsCard component", () => {
-//   test("render CountryDetailsCard component", () => {
-//     render(<CountryDetailsCard data={data} />);
-//   });
-// });
-
-// jest.mock("axios");
-
-// describe("render the app component", () => {
-//   test("check if render works", async () => {
-//     const resolvedPromise = Promise.resolve({ CapitalData });
-//     axios.get.mockImplementationOnce(() => resolvedPromise);
-//     render(
-//       <BrowserRouter>
-//         <CapitalDetails />
-//       </BrowserRouter>
-//     );
-//     screen.debug();
-//     expect(screen.queryByText("Loading")).toBeInTheDocument();
-//     await act(() => resolvedPromise);
-//     expect(screen.queryByText("Loading")).toBeNull();
-//     screen.debug();
-//   });
-// });
