@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import axios from "axios";
 import { useDebounce } from "../hooks/useDebounce";
-import "./searchCountryPage.css";
+import "./SearchCountryPage.css";
 import Box from "@mui/material/Box";
 import InputField from "../components/InputField";
 import InputButton from "../components/InputButton";
@@ -17,7 +17,7 @@ function SearchCountry() {
     setCountryName(e.target.value);
   };
 
-  const handleFetchStories = useCallback(async () => {
+  const handleData = useCallback(async () => {
     try {
       const response = await axios.get<[]>(debouncedUrl);
       console.log("done");
@@ -54,8 +54,8 @@ function SearchCountry() {
   }, [debouncedUrl]);
 
   useEffect(() => {
-    handleFetchStories();
-  }, [handleFetchStories]);
+    handleData();
+  }, [handleData]);
 
   return (
     <Box className="inputContainer">

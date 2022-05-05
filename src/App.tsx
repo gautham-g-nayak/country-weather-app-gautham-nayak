@@ -1,5 +1,5 @@
 import "./App.css";
-import SearchCountry from "./pages/searchCountryPage";
+import SearchCountry from "./pages/SearchCountryPage";
 
 function App() {
   return (

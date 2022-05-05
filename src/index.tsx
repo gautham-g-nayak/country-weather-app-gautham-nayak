@@ -3,8 +3,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import CountryDetails from "./pages/countryDetailsPage";
-import CapitalDetails from "./pages/capitalDetails";
+import CountryDetails from "./pages/CountryDetailsPage";
+import CapitalDetails from "./pages/CapitalDetails";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

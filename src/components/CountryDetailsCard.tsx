@@ -2,7 +2,7 @@ import "./CountryDetailsCard.css";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import HorizontalDivider from "../components/horizontalDivider";
-import Information from "../components/information";
+import Information from "./Information";
 import { CountryDetailsCardProps } from "../types";
 import InputButton from "./InputButton";
 
